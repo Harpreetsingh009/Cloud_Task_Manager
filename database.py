@@ -8,7 +8,14 @@ from sqlalchemy.orm import sessionmaker
 # import declarative_base
 from sqlalchemy.ext.declarative import declarative_base
 
-DATABASE_URL='postgresql+psycopg2://neondb_owner:npg_8I6VlAbfQOYd@ep-royal-breeze-atn0r7dp-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+# import the function that can read a .rnv file , i.e open the .env file , and load all of its variables
+# into the memory
+
+DATABASE_URL= os.getenv("DATABASE_URL")
 # here , we are connecting to a PostgreSQL database hosted on th cloud(Neon)
 
 # note : click "show password" and copy th complete connection string
